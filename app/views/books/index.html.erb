@@ -1,0 +1,37 @@
+<div class="container px-5 px-sm-0">
+<div class="row">
+  <div class="col-sm-3 bg-secondary">
+  <div class="sidebar" >
+    </div>
+  </div>
+  
+  
+<div class="col-sm-8 offset-md-1">
+<h2>Books</h2>
+<table>
+  
+<div class="d-flex flex-row bd-highlight mb-3" >
+  
+  <div class="p-2 bd-highlight w-25"></div>
+  <div class="p-2 bd-highlight w-25"><h6>TItle</h6></div>
+  <div class="p-2 bd-highlight w-50"><h6>Opinion</h6></div>
+  </div>
+  </div>
+  <div class="col-sm-8 offset-md-1">
+<div class="d-flex flex-row bd-highlight mb-3" >
+<% @books.each do |book| %>
+
+  <div class="p-2 bd-highlight w-25"><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></div>
+  <%= link_to book_path(book.id) do %>
+  <div class="p-2 bd-highlight w-25"><%= book.title %></div>
+  <% end %>
+  <div class="p-2 bd-highlight w-50"><%= book.body %></div>
+  </div>
+  </di
+<% end %>
+</div>
+
+</table>
+</div>
+</div>
+</div>
