@@ -1,14 +1,25 @@
+<%= render 'books/sidebar', book: @book, user: @user  %>
+
+
+<div class="col-8 offset-1">
+
  <h2>Users</h2>
- 
  <header>
-  <div><h6>image</h6></div>
-  <div><h6>name</h6></div>
-  <div></div>
- </header>
+  <div class="row">
+  <div class="col-2"><h6>image</h6></div>
+  <div class="col-4"><h6>name</h6></div>
+  <div class="col-6"></div>
+  </div>
+</header>
+
 <% @users.each do |user| %>
-<div>
-  <P><%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %></P>
-  <p><%= user.name %></p>
-  <p><%= link_to "Show", user_path(user.id) %> </p>
+<div class="row py-2">
+  <div class="col-2"><%= attachment_image_tag user, :profile_image,  fallback: "no_image.jpg", size:'50x50'  %></div>
+  <div class="col-4"><%= user.name %></div>
+  <div class="col-6"><%= link_to "Show", user_path(user.id) %> </div>
+  </div>
 <% end %>
 </div>
+
+
+</div></div>

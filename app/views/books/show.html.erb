@@ -1,12 +1,21 @@
-<div>
-  <%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
-  <p><%= @book.user.name %></p>
-  <P><%= @book.title %></P>
-  <p><%= @book.body %></p>
+<%= render 'sidebar', book: @book, user: @user  %>
+  
+<div class="col-sm-8 offset-1">
+
+  <h2>Book detail</h2>
+  
+  <div class="row">
+    <div class="col-2">
+  <%= attachment_image_tag @book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg", size:'50x50' %>
+  <p><%= @book.user.name %></p></div>
+  <div class="col-2"><P><%= @book.title %></P></div>
+  <div class="col-4"><p><%= @book.body %></p></div>
   <% if @book.user == current_user %>
-    <%= link_to "Edit", edit_book_path(@book.id) %>
-    <%= link_to "Destroy", book_path(@book), method: :delete %>
+   <div class="col-2"> <%= link_to "Edit", edit_book_path(@book.id) %></div>
+   <div class="col-2"> <%= link_to "Destroy", book_path(@book), method: :delete %></div>
     
   <% end %>
 
+</div>
+</div>
 </div>
